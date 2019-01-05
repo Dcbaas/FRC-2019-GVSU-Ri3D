@@ -18,4 +18,4 @@ class SparkMax : public frc::PWMSpeedController {
 
     SparkMax(SparkMax&&) = default;
     SparkMax& operator=(SparkMax&&) = default;
-}
+};
