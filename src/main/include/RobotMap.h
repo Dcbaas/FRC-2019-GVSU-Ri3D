@@ -43,3 +43,10 @@ constexpr int kBottomLeftMotor = 3;
 constexpr int kBottomRightMotor = 4;
 constexpr int kElevMotor1 = 5;
 constexpr int kElevMotor2 = 6;
+
+//Definitions of Elevator locations for each level of the rocket
+//UPDATE locations based on motor. 0s are placeholders... 
+constexpr int kLv1 = 0;     //1'7"
+constexpr int kLv2 = 0;     //3'11"
+constexpr int kLv3 = 0;     //6'3"
+constexpr int kBallMod = 0;    //Modifer to Cargo insert locations to add an additional 8.5" higher than the hatch positions. 
