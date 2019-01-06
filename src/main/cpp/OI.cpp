@@ -6,10 +6,12 @@
 /*----------------------------------------------------------------------------*/
 
 #include "OI.h"
-#include <frc/livewindow/LiveWindow.h>  
+#include <frc/livewindow/LiveWindow.h> 
+#include <frc/Joystick.h> 
 
 OI::OI() {
   // Eventually, buttons will go here.
+  
 }
 
 

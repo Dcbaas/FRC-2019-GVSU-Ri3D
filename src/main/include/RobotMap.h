@@ -23,3 +23,23 @@
 // number and the module. For example you with a rangefinder:
 // constexpr int kRangeFinderPort = 1;
 // constexpr int kRangeFinderModule = 1;
+
+//Definitions of buttons on a single controller
+constexpr int kLeftMotor = 1;
+constexpr int kRightMotor = 5;
+constexpr int kSqButton = 0;
+constexpr int kTriButton = 3;
+constexpr int kCircleButton = 2;
+constexpr int kXButon = 1;
+constexpr int kLTrigger = 6;
+constexpr int kLBunmper = 4;
+constexpr int kRTrigger = 7;
+constexpr int kRBumper = 5;
+
+//Definition of motors on robot (6 motors)
+constexpr int kTopLeftMotor = 1;
+constexpr int kTopRightMotor = 2;
+constexpr int kBottomLeftMotor = 3;
+constexpr int kBottomRightMotor = 4;
+constexpr int kElevMotor1 = 5;
+constexpr int kElevMotor2 = 6;
