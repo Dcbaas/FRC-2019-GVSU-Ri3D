@@ -9,9 +9,9 @@
 
 #include <frc/commands/Command.h>
 
-class ExampleCommand : public frc::Command {
+class AutoHABLine : public frc::Command {
  public:
-  ExampleCommand();
+  AutoHABLine();
   void Initialize() override;
   void Execute() override;
   bool IsFinished() override;

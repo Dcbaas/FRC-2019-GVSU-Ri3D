@@ -9,9 +9,9 @@
 
 #include <frc/commands/Command.h>
 
-class ExampleCommand : public frc::Command {
+class AutoHatch : public frc::Command {
  public:
-  ExampleCommand();
+  AutoHatch();
   void Initialize() override;
   void Execute() override;
   bool IsFinished() override;
