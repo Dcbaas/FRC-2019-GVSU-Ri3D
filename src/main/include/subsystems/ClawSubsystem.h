@@ -5,14 +5,24 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "OI.h"
-#include <frc/livewindow/LiveWindow.h> 
-#include <frc/Joystick.h> 
+#pragma once
 
-OI::OI() {
-  // Eventually, buttons will go here.
-  
+#include <frc/commands/Subsystem.h>
+#include <Solenoid.h> 
+namespace Claw
+{
+  class ClawSubsystem : public frc::Subsystem{
+    public:
+      ClawSubsystem();
+      void InitDefaultCommand() override;
+      
+      void setOpen();
+      void setClose();
+
+    private:
+      frc::Solenoid leftSolenoid{0,0};
+      frc::Solenoid rightSolenoid{0,1};
+      bool closed{false};
+
+  };
 }
-
-
-
