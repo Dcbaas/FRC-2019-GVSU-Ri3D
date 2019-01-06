@@ -18,7 +18,7 @@ class CameraSubsystem : public frc::Subsystem
     static const int LOW_EXPOSURE = 0;
 
     private:
-        cs::UsbCamera camera;
-        cs::VideoSink cameraServer;
+        cs::UsbCamera mCamera;
+        cs::VideoSink mCameraServer;
     };
 }; // namespace CameraSubsystem

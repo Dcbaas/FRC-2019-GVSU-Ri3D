@@ -13,12 +13,14 @@ namespace Claw
 class ClawSubsystem : public frc::Subsystem
 {
   private:
-    void SetHatchPosition();
-    void SetCargoPosition();
-    void SetOpenPosition();
+    
 
   public:
     ClawSubsystem();
     void InitDefaultCommand() override;
+    
+    void SetHatchPosition();
+    void SetCargoPosition();
+    void SetOpenPosition();
 };
 }
