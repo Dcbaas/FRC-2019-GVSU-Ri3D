@@ -17,7 +17,7 @@ void MoveUp(double speed)   {
 }
 
 void MoveDown(double speed) {
-    
+
 }
 
 } // namespace Claw

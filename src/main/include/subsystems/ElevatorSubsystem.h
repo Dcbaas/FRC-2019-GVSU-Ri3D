@@ -4,7 +4,7 @@
 #pragma once
 
 #include "libraries/SparkMax.h"
-#include "frc/Encoder.h"
+#include <Encoder.h>
 
 namespace Elevator 
 {
@@ -17,9 +17,9 @@ namespace Elevator
       void MoveDown(double speed);
 
     private:
-      SparkMax(5);    //False Channel valudes...
-      SparkMax(6);    //False Channel values...
-      Encoder();
+      SparkMax LeftMotor{5};    //False Channel valudes...
+      SparkMax RightMotor{6};    //False Channel values...
+      Encoder ElevatorEncoder;
       int height;
   };
 }
