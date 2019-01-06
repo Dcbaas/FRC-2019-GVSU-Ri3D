@@ -11,10 +11,16 @@
 #include <frc/smartdashboard/SmartDashboard.h>
 
 ExampleSubsystem Robot::m_subsystem;
-DriveSubsystem Robot::driveSubsystem;
+std::shared_ptr<DriveSubsystem> Robot::driveSubsystem = 
+  std::make_shared<DriveSubsystem>();
+std::shared_ptr<ClawSubsystem> Robot::m_clawSubsystem = 
+  std::make_shared<ClawSubsystem>();
+std::shared_ptr<CameraSubsystem> Robot::m_cameraSubsystem = 
+  std::make_shared<CameraSubsystem>();
 OI Robot::m_oi;
 
 void Robot::RobotInit() {
+
   m_chooser.SetDefaultOption("Default Auto", &m_defaultAuto);
   m_chooser.AddOption("My Auto", &m_myAuto);
   frc::SmartDashboard::PutData("Auto Modes", &m_chooser);

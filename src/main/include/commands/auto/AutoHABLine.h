@@ -8,6 +8,8 @@
 #pragma once
 
 #include <frc/commands/Command.h>
+#include <frc/Timer.h>
+
 
 class AutoHABLine : public frc::Command {
  public:
@@ -17,4 +19,8 @@ class AutoHABLine : public frc::Command {
   bool IsFinished() override;
   void End() override;
   void Interrupted() override;
+private:
+  int m_startTime;
+  frc::Timer m_timer;
+  std::shared_ptr<DriveSubsystem> m_drive;
 };

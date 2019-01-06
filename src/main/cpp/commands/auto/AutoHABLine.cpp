@@ -11,17 +11,25 @@
 
 AutoHABLine::AutoHABLine() {
   // Use Requires() here to declare subsystem dependencies
-  Requires(&Robot::m_subsystem);
+  m_drive = Robot::driveSubsystem;
+  Requires(m_drive);
 }
 
 // Called just before this Command runs the first time
-void AutoHABLine::Initialize() {}
+void AutoHABLine::Initialize() {
+  m_startTime = m_timer.GetFPGATimestamp();
+}
 
 // Called repeatedly when this Command is scheduled to run
-void AutoHABLine::Execute() {}
+void AutoHABLine::Execute() {
+  // Drive sequence to cross line
+  m_drive->TankDrive(1, 1);
+}
 
 // Make this return true when this Command no longer needs to run execute()
-bool AutoHABLine::IsFinished() { return false; }
+bool AutoHABLine::IsFinished() {
+   return m_timer.GetFPGATimestamp() - m_startTime > 3; 
+}
 
 // Called once after isFinished returns true
 void AutoHABLine::End() {}

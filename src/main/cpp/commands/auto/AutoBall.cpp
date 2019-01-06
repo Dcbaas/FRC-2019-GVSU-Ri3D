@@ -22,7 +22,10 @@ void AutoBall::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void AutoBall::Execute() {
-  
+  // Drive sequence to front of hatch
+  // Align with hatch line
+  // Drive forward? drop ball
+  // Move out of way?
 }
 
 // Make this return true when this Command no longer needs to run execute()
@@ -33,4 +36,4 @@ void AutoBall::End() {}
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void AutoBall::Interrupted() {}
+void AutoBall::Interrupted  () {}

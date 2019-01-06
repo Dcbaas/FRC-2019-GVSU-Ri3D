@@ -10,12 +10,18 @@
 #include "Robot.h"
 
 AutoHatch::AutoHatch() {
-  // Use Requires() here to declare subsystem dependencies
-  Requires(&Robot::m_subsystem);
+  Requires(&Robot::driveSubsystem);
+  Requires(&Robot::m_cameraSubsystem); // Maybe
+  Requires(&Robot::m_clawSubsystem);
 }
 
 // Called just before this Command runs the first time
-void AutoHatch::Initialize() {}
+void AutoHatch::Initialize() {
+  // Drive sequence to front of hatch
+  // Align with hatch line
+  // Drive forward? drop hatch
+  // Move out of way?
+}
 
 // Called repeatedly when this Command is scheduled to run
 void AutoHatch::Execute() {}
