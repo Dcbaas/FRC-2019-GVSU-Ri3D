@@ -15,4 +15,4 @@ namespace Camera
         cs::UsbCamera camera;
         cs::VideoSink cameraServer;
     };
-} // namespace CameraSubsystem
+}; // namespace CameraSubsystem

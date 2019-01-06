@@ -7,7 +7,10 @@
 
 #pragma once
 
+#include <frc/Joystick.h>     //Driving w/ Joystick
+
 class OI {
  public:
   OI();
+  frc::Joystick driveStick{0};
 };
