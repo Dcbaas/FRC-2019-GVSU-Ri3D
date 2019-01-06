@@ -41,7 +41,9 @@ deploy {
 def includeSrcInIncludeRoot = false
 
 // Set this to true to enable desktop support.
-def includeDesktopSupport = true
+//We set this to off to support navX libs
+//It tries to build a windows build and fails.
+def includeDesktopSupport = false
 
 model {
     components {
