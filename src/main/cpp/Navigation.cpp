@@ -1,16 +1,21 @@
 #include <string>
 #include <array>
 #include <cmath>
-#include <frc/SPI.h>
-#include "Navigation.h"
+
 #include "AHRS.h"
+#include <frc/SPI.h>
+
+#include "Navigation.h"
+
+
 
 namespace NavigationSensor{
     
     Navigation::Navigation(){
         
         try{
-            // ahrs = new AHRS(frc::SPI::Port::kMXP);
+            //Broken
+            navX = new AHRS(SPI::Port::kMXP);
         }
         catch(std::exception ex){
             std::string err_string = "Error instantiating navX-MXP:  ";
@@ -20,7 +25,7 @@ namespace NavigationSensor{
     }
 
     //Do we want to pass the whole AHRS object?
-    AHRS* Navigation::getGyro() {return ahrs;}
+    // AHRS* Navigation::getGyro() {return ahrs;}
 
     /**
      * For the implementation of the getHeading function, I need to lock the gyro from being

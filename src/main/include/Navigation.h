@@ -9,8 +9,8 @@
 #include <frc/commands/Subsystem.h>
 
 //Define third party and user made
-#include "frc/WPILib.h"
-#include <AHRS.h>
+#include <frc/WPILib.h>
+#include "AHRS.h"
 
 //Define PI as a constant. Is the same as Cs M_PI
 #define PI 3.14159265358979323846264338327950288
@@ -31,7 +31,7 @@ namespace NavigationSensor{
         double getRightPosition();
 
     private:
-        AHRS* ahrs;
+        AHRS* navX;
         int leftOffset{0};
         int rightOffset{0};
         double gyroOffset{0.0};
@@ -41,7 +41,7 @@ namespace NavigationSensor{
         int lastRightEncoder{0};
         std::mutex lock;
 
-        double readGyro(){ return 0;}
+        double readGyro(){return navX->GetYaw();}
         double toRadians(double degreeVal){return degreeVal * (PI/180.0);}
 
     };
