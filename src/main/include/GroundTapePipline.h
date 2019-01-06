@@ -31,6 +31,9 @@ class GroundTapePipline {
 		void findContours(cv::Mat &, bool , std::vector<std::vector<cv::Point> > &);
 		void filterContours(std::vector<std::vector<cv::Point> > &, double , double , double , double , double , double , double [], double , double , double , double , std::vector<std::vector<cv::Point> > &);
 		void getRectangle();
+		int getHypotnuse(cv::Point& a,const cv::Point& b);
+		//Define the center of the screen.
+		const cv::Point centerScreen{320,180};
 
 	public:
 		GroundTapePipline();

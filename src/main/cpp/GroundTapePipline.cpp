@@ -125,6 +125,39 @@ std::vector<std::vector<cv::Point> >* GroundTapePipline::GetFilterContoursOutput
 		}
 	}
 
+	void GroundTapePipline::getRectangle(){
+		int largestIndex = 0;
+		int largestSize = 0;
+		size_t vecSize = this->filterContoursOutput.size();
+		std::vector<cv::Point> tape;
+		if(vecSize == 1){
+			tape = filterContoursOutput[0];
+		}
+		else{
+			//Find the largest contor in the vector. It should be the tape line.
+			for(auto index = 0; index < vecSize; ++index){
+				if(this->filterContoursOutput[index].size() > largestSize){
+					largestSize = this->filterContoursOutput[index].size();
+					largestIndex = index;
+				}
+			}
+
+			tape = this->filterContoursOutput[largestIndex];
+		}
+
+		//Find the rectangleo by using the area 
+		cv::Point center = cv::minAreaRect(tape).center;
+
+		offset = getHypotnuse(center, centerScreen) * cv::pow(center.x, 0.0);
+
+
+	}
+
+	int GroundTapePipline::getHypotnuse(cv::Point& a, const cv::Point& b){
+		cv::Point diff = a - b; 
+		return cv::sqrt(diff.x*diff.x + diff.y*diff.y);
+	}
+
 
 
 } // end grip namespace
