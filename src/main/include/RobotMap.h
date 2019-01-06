@@ -50,3 +50,5 @@ constexpr int kLv1 = 0;     //1'7"
 constexpr int kLv2 = 0;     //3'11"
 constexpr int kLv3 = 0;     //6'3"
 constexpr int kBallMod = 0;    //Modifer to Cargo insert locations to add an additional 8.5" higher than the hatch positions. 
+constexpr int kEncoderChannelA = 0; //Placerholder value
+constexpr int kEncoderChannelB = 1; //Placerholder value

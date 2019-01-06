@@ -3,8 +3,9 @@
 
 #pragma once
 
+#include "frc/commands/SubSystem.h"
 #include "libraries/SparkMax.h"
-#include <Encoder.h>
+#include <frc/Encoder.h>
 
 namespace Elevator 
 {
@@ -19,7 +20,7 @@ namespace Elevator
     private:
       SparkMax LeftMotor{5};    //False Channel valudes...
       SparkMax RightMotor{6};    //False Channel values...
-      Encoder ElevatorEncoder;
+      frc::Encoder* ElevatorEncoder;
       int height;
   };
 }

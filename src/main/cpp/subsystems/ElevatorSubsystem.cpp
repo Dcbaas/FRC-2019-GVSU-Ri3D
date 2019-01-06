@@ -1,10 +1,14 @@
 
 
 #include "subsystems/ElevatorSubsystem.h"
+#include "RobotMap.h"
 
 namespace Elevator
 {
-ElevatorSubsystem::ElevatorSubsystem() : Subsystem("ExampleSubsystem") {}
+ElevatorSubsystem::ElevatorSubsystem() : Subsystem("ExampleSubsystem")
+{
+    ElevatorEncoder = new frc::Encoder(kEncoderChannelA, kEncoderChannelB);
+}
 
 void ElevatorSubsystem::InitDefaultCommand()
 {
