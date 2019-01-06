@@ -10,6 +10,7 @@
 #include <frc/TimedRobot.h>
 #include <frc/commands/Command.h>
 #include <frc/smartdashboard/SendableChooser.h>
+#include <memory>
 
 #include "OI.h"
 #include "commands/ExampleCommand.h"
@@ -19,8 +20,10 @@
 
 class Robot : public frc::TimedRobot {
  public:
-  static ExampleSubsystem m_subsystem;
-  static DriveSubsystem driveSubsystem;
+  static std::shared_ptr<ExampleSubsystem> m_subsystem;
+  static std::shared_ptr<DriveSubsystem> driveSubsystem;
+  static std::shared_ptr<CameraSubsystem> m_cameraSubsystem;
+  static std::shared_ptr<ClawSubsystem> m_clawSubsystem;
   static OI m_oi;
 
   void RobotInit() override;
