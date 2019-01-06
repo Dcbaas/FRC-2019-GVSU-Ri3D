@@ -8,19 +8,21 @@
 #pragma once
 
 #include <frc/commands/Subsystem.h>
+#include <Solenoid.h> 
 namespace Claw
 {
-class ClawSubsystem : public frc::Subsystem
-{
-  private:
-    
+  class ClawSubsystem : public frc::Subsystem{
+    public:
+      ClawSubsystem();
+      void InitDefaultCommand() override;
+      
+      void setOpen();
+      void setClose();
 
-  public:
-    ClawSubsystem();
-    void InitDefaultCommand() override;
-    
-    void SetHatchPosition();
-    void SetCargoPosition();
-    void SetOpenPosition();
-};
+    private:
+      frc::Solenoid leftSolenoid{0,0};
+      frc::Solenoid rightSolenoid{0,1};
+      bool closed{false};
+
+  };
 }
