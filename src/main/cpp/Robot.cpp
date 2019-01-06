@@ -10,13 +10,14 @@
 #include <frc/commands/Scheduler.h>
 #include <frc/smartdashboard/SmartDashboard.h>
 
-ExampleSubsystem Robot::m_subsystem;
+std::shared_ptr<ExampleSubsystem> Robot::m_subsystem = 
+  std::make_shared<ExampleSubsystem>();
 std::shared_ptr<DriveSubsystem> Robot::driveSubsystem = 
   std::make_shared<DriveSubsystem>();
-std::shared_ptr<ClawSubsystem> Robot::m_clawSubsystem = 
-  std::make_shared<ClawSubsystem>();
-std::shared_ptr<CameraSubsystem> Robot::m_cameraSubsystem = 
-  std::make_shared<CameraSubsystem>();
+std::shared_ptr<Claw::ClawSubsystem> Robot::m_clawSubsystem = 
+  std::make_shared<Claw::ClawSubsystem>();
+std::shared_ptr<Camera::CameraSubsystem> Robot::m_cameraSubsystem = 
+  std::make_shared<Camera::CameraSubsystem>();
 OI Robot::m_oi;
 
 void Robot::RobotInit() {
