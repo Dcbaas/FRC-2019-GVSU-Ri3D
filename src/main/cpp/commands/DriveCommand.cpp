@@ -1,5 +1,5 @@
 #include "commands/DriveCommand.h"
-
+#include <cmath>
 #include "Robot.h"
 
 DriveCommand::DriveCommand() {
@@ -11,10 +11,27 @@ DriveCommand::DriveCommand() {
 void DriveCommand::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
+double alpha = 0.5; //0.74;
+double alpham1 = 1 - alpha;
+
 void DriveCommand::Execute() {
-    const double left = -1 * Robot::m_oi.driveStick.GetAxis(frc::Joystick::AxisType::kYAxis);
-    const double right = -1 * Robot::m_oi.driveStick.GetAxis(frc::Joystick::AxisType::kZAxis);
-    Robot::driveSubsystem->TankDrive(left, right);
+    double leftValue = -1 * Robot::m_oi.driveStick.GetRawAxis(1);
+    double rightValue = Robot::m_oi.driveStick.GetRawAxis(5);
+    double leftOutput = (alpha * leftValue) + (alpham1 * this->lastLeftOutput);
+    double rightOutput = (alpha * rightValue) + (alpham1 * this->lastRightOutput);
+
+    if (std::abs(leftOutput) <= 0.15) {
+        leftOutput = (1 * leftValue);
+    }
+
+    if (std::abs(rightOutput) <= 0.15) {
+        rightOutput = (1 * rightValue);
+    }
+
+    Robot::driveSubsystem->TankDrive(leftOutput, rightOutput);
+
+    this->lastLeftOutput = leftOutput;
+    this->lastRightOutput = rightOutput;
 }
 
 // Make this return true when this Command no longer needs to run execute()

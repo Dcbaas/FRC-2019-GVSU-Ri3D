@@ -10,4 +10,8 @@ class DriveCommand : public frc::Command {
   bool IsFinished() override;
   void End() override;
   void Interrupted() override;
+
+ private:
+  double lastLeftOutput{0};
+  double lastRightOutput{0};
 };
