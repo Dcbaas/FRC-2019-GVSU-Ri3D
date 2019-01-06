@@ -10,6 +10,8 @@
 #include <frc/commands/Command.h>
 #include <frc/Timer.h>
 
+#include "subsystems/DriveSubsystem.h"
+
 
 class AutoHABLine : public frc::Command {
  public:
