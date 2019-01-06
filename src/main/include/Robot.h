@@ -17,13 +17,15 @@
 #include "commands/MyAutoCommand.h"
 #include "subsystems/ExampleSubsystem.h"
 #include "subsystems/DriveSubsystem.h"
+#include "subsystems/CameraSubsystem.h"
+#include "subsystems/ClawSubsystem.h"
 
 class Robot : public frc::TimedRobot {
  public:
   static std::shared_ptr<ExampleSubsystem> m_subsystem;
   static std::shared_ptr<DriveSubsystem> driveSubsystem;
-  static std::shared_ptr<CameraSubsystem> m_cameraSubsystem;
-  static std::shared_ptr<ClawSubsystem> m_clawSubsystem;
+  static std::shared_ptr<Camera::CameraSubsystem> m_cameraSubsystem;
+  static std::shared_ptr<Claw::ClawSubsystem> m_clawSubsystem;
   static OI m_oi;
 
   void RobotInit() override;

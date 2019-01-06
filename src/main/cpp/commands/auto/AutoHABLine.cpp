@@ -5,14 +5,14 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/AutoHABLine.h"
+#include "commands/auto/AutoHABLine.h"
 
 #include "Robot.h"
 
 AutoHABLine::AutoHABLine() {
   // Use Requires() here to declare subsystem dependencies
   m_drive = Robot::driveSubsystem;
-  Requires(m_drive);
+  Requires(m_drive.get());
 }
 
 // Called just before this Command runs the first time

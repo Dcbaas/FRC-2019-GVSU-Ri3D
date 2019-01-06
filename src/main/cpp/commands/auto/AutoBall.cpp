@@ -5,14 +5,14 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/AutoBall.h"
+#include "commands/auto/AutoBall.h"
 
 #include "Robot.h"
 
 AutoBall::AutoBall() {
-  Requires(&Robot::m_cameraSubsystem);
-  Requires(&Robot::m_clawSubsystem);
-  Requires(&Robot::driveSubsystem);
+  Requires(Robot::m_cameraSubsystem.get());
+  Requires(Robot::m_clawSubsystem.get());
+  Requires(Robot::driveSubsystem.get());
 }
 
 // Called just before this Command runs the first time

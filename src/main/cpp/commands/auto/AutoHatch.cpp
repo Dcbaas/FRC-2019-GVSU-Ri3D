@@ -5,14 +5,14 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/AutoHatch.h"
+#include "commands/auto/AutoHatch.h"
 
 #include "Robot.h"
 
 AutoHatch::AutoHatch() {
-  Requires(&Robot::driveSubsystem);
-  Requires(&Robot::m_cameraSubsystem); // Maybe
-  Requires(&Robot::m_clawSubsystem);
+  Requires(Robot::driveSubsystem.get());
+  Requires(Robot::m_cameraSubsystem.get()); // Maybe
+  Requires(Robot::m_clawSubsystem.get());
 }
 
 // Called just before this Command runs the first time
