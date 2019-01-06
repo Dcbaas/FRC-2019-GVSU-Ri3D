@@ -14,10 +14,10 @@ class DriveSubsystem : public frc::Subsystem {
   void Stop();
 
  private:
-  SparkMax frontLeft{0};
-  SparkMax backLeft{1};
-  SparkMax frontRight{2};
-  SparkMax backRight{3};
+  SparkMax frontLeft{6};
+  SparkMax backLeft{5};
+  SparkMax frontRight{3};
+  SparkMax backRight{4};
   frc::SpeedControllerGroup left{frontLeft, backLeft};
   frc::SpeedControllerGroup right{frontRight, backRight};
   frc::DifferentialDrive robotDrive{left, right};
