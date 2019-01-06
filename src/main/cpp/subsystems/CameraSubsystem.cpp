@@ -5,15 +5,25 @@ namespace Camera
 {
     CameraSubsystem::CameraSubsystem() : frc::Subsystem("CameraSubsystem")
     {
-        camera = frc::CameraServer::GetInstance()->StartAutomaticCapture(0);
-        cameraServer = frc::CameraServer::GetInstance()->GetServer();
+        mCamera = frc::CameraServer::GetInstance()->StartAutomaticCapture(0);
+        mCameraServer = frc::CameraServer::GetInstance()->GetServer();
 
-        cameraServer.SetSource(camera);
+        mCameraServer.SetSource(mCamera);
     
     }
 
     void CameraSubsystem::InitDefaultCommand()
     {
 
+    }
+
+    void CameraSubsystem::SetExposureLow()
+    {
+        mCamera.SetExposureManual(LOW_EXPOSURE);
+    }
+
+    void CameraSubsystem::SetExposureHigh()
+    {
+        mCamera.SetExposureManual(HIGH_EXPOSURE);
     }
 } // namespace CameraSubsystem
