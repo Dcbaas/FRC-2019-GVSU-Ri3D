@@ -40,7 +40,10 @@ double FangvPIDController::Process(double setpoint, double input) {
   double d = m_kd * error / dt;
   
   // "Ideal" PID Algorithm with velocity damping instead of adding
-  return p + i - d; // Tentative 
+  double ret = p + i - d;
+  if (ret > m_upperOutputLimit) return m_upperOutputLimit;
+  else if (ret < m_lowerOutputLimit) return m_lowerOutputLimit;
+  else return ret;
 }
 
 void FangvPIDController::ResetIAccum() {
