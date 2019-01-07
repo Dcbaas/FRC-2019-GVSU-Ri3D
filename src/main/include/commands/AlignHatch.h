@@ -8,6 +8,11 @@
 #pragma once
 
 #include <frc/commands/Command.h>
+#include <frc/Timer.h>
+
+#include "subsystems/DriveSubsystem.h"
+#include "subsystems/CameraSubsystem.h"
+#include "libraries/FangvPIDController.h"
 
 class AlignHatch : public frc::Command {
  public:
@@ -17,4 +22,12 @@ class AlignHatch : public frc::Command {
   bool IsFinished() override;
   void End() override;
   void Interrupted() override;
+private:
+  std::shared_ptr<DriveSubsystem> m_drive;
+  std::shared_ptr<Camera::CameraSubsystem> m_camera;
+
+  FangvPIDController m_pid{100, -100, kP, kI, kD, 0};
+  frc::Timer m_timer;
+  double m_timestamp;
+  bool m_tolerable;
 };

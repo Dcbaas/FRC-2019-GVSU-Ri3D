@@ -12,6 +12,8 @@ public:
 
   void ResetIAccum();
 
+  inline friend FangvPIDController operator=(FangvPIDController &other)
+
 private:
   const double kIAccumLimit = 100; // Arbitrary
 
