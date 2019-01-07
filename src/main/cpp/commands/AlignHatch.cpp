@@ -8,20 +8,43 @@
 #include "commands/AlignHatch.h"
 
 #include "Robot.h"
+#include "RobotMap.h"
 
 AlignHatch::AlignHatch() {
   // Use Requires() here to declare subsystem dependencies
-  Requires(Robot::m_subsystem.get());
+  m_drive = Robot::driveSubsystem;
+  m_camera = Robot::m_cameraSubsystem;
+  Requires(m_drive.get());
+  Requires(m_camera.get());
 }
 
 // Called just before this Command runs the first time
-void AlignHatch::Initialize() {}
+void AlignHatch::Initialize() {
+ // m_pid = FangvPIDController(100, -100, kP, kI, kD, 0);
+}
 
 // Called repeatedly when this Command is scheduled to run
-void AlignHatch::Execute() {}
+void AlignHatch::Execute() {
+  double pv = -1;
+  double output = m_pid.Process(0.0, pv);
+
+  if (abs(pv) < 2) 
+  {
+    m_tolerable = true;
+    m_timestamp = m_timer.GetFPGATimestamp();
+  }
+  else 
+  {
+    m_tolerable = false;
+  }
+
+  m_drive->TankDrive(output / 2.0, -output / 2.0);
+}
 
 // Make this return true when this Command no longer needs to run execute()
-bool AlignHatch::IsFinished() { return false; }
+bool AlignHatch::IsFinished() { 
+  return m_tolerable && m_timer.GetFPGATimestamp() - m_timestamp > 2;
+}
 
 // Called once after isFinished returns true
 void AlignHatch::End() {}
