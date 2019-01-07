@@ -27,4 +27,4 @@ private:
   double m_kff;
 
   double m_iAccum;
-}
+};
