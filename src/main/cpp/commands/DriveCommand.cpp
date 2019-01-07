@@ -11,7 +11,7 @@ DriveCommand::DriveCommand() {
 void DriveCommand::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
-double alpha = 0.5; //0.74;
+double alpha = 0.4; //0.5 //0.74;
 double alpham1 = 1 - alpha;
 
 void DriveCommand::Execute() {
@@ -28,7 +28,7 @@ void DriveCommand::Execute() {
         rightOutput = (1 * rightValue);
     }
 
-    Robot::driveSubsystem->TankDrive(leftOutput, rightOutput);
+    Robot::driveSubsystem->TankDrive(.6 * leftOutput, .6 * rightOutput);
 
     this->lastLeftOutput = leftOutput;
     this->lastRightOutput = rightOutput;
