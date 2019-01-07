@@ -19,7 +19,7 @@ void DriveCommand::Execute() {
     double rightValue = Robot::m_oi.driveStick.GetRawAxis(5);
     double leftOutput = (alpha * leftValue) + (alpham1 * this->lastLeftOutput);
     double rightOutput = (alpha * rightValue) + (alpham1 * this->lastRightOutput);
-
+    
     if (std::abs(leftOutput) <= 0.15) {
         leftOutput = (1 * leftValue);
     }
