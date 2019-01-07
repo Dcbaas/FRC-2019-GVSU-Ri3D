@@ -11,6 +11,7 @@
 #include <frc/commands/Command.h>
 #include <frc/smartdashboard/SendableChooser.h>
 #include <memory>
+#include <WPILib.h>
 
 #include "OI.h"
 #include "commands/ExampleCommand.h"
@@ -45,4 +46,5 @@ class Robot : public frc::TimedRobot {
   ExampleCommand m_defaultAuto;
   MyAutoCommand m_myAuto;
   frc::SendableChooser<frc::Command*> m_chooser;
+  static void VisionThread();
 };
