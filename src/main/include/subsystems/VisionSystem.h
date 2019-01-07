@@ -10,12 +10,13 @@
 namespace Camera{
     class AligmentCamera : public frc::Subsystem{
     public:
-        void InitDefaultCommand() override;
+        AligmentCamera();
+        void InitDefaultCommand() override{}
         int findDistance();
     private:
         cs::UsbCamera camera;
         cs::CvSink cameraSink;
-        cs::CvSource outStream;
+        //cs::CvSource outStream;
         cv::Mat sourceFrame;
         grip::GroundTapePipline processPipline;
     };
