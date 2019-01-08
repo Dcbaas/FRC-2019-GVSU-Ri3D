@@ -8,11 +8,24 @@ namespace Camera{
         camera.SetResolution(640,480);
         cameraSink = frc::CameraServer::GetInstance()->GetVideo();
     }
+    
+    void AligmentCamera::runThread(){
+        std::thread(&AligmentCamera::findDistance, this);
+    }
 
-    int AligmentCamera::findDistance(){
-        cameraSink.GrabFrame(sourceFrame);
-        processPipline.Process(sourceFrame);
-        return processPipline.getDistance();
+    void AligmentCamera::findDistance(){
+        while (true){
+            cameraSink.GrabFrame(sourceFrame);
+            processPipline.Process(sourceFrame);
+            distance = processPipline.getDistance();
+        }
+    }
+
+    int AligmentCamera::getDistance(){
+        m_lock.lock();
+        int currDistance = distance;
+        m_lock.unlock();
+        return currDistance;
     }
 }
 

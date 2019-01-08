@@ -4,6 +4,7 @@
 #include "cscore.h"
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/core/core.hpp>\
+#include <mutex>
 
 #include "libraries/GroundTapePipline.h"
 
@@ -12,12 +13,16 @@ namespace Camera{
     public:
         AligmentCamera();
         void InitDefaultCommand() override{}
-        int findDistance();
+        void runThread();
+        int getDistance();
     private:
         cs::UsbCamera camera;
         cs::CvSink cameraSink;
-        //cs::CvSource outStream;
         cv::Mat sourceFrame;
         grip::GroundTapePipline processPipline;
+        int distance{0};
+        std::mutex m_lock;
+
+        void findDistance();
     };
 }
