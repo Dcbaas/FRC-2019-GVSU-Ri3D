@@ -18,6 +18,9 @@ std::shared_ptr<Claw::ClawSubsystem> Robot::m_clawSubsystem =
   std::make_shared<Claw::ClawSubsystem>();
 std::shared_ptr<Camera::CameraSubsystem> Robot::m_cameraSubsystem = 
   std::make_shared<Camera::CameraSubsystem>();
+std::shared_ptr<Camera::AligmentCamera> Robot::m_visionSubsystem = 
+  std::make_shared<Camera::AligmentCamera>();
+
 OI Robot::m_oi;
 
 void Robot::RobotInit() {
@@ -25,6 +28,7 @@ void Robot::RobotInit() {
   m_chooser.SetDefaultOption("Default Auto", &m_defaultAuto);
   m_chooser.AddOption("My Auto", &m_myAuto);
   frc::SmartDashboard::PutData("Auto Modes", &m_chooser);
+  m_visionSubsystem->runThread();
 }
 
 /**
@@ -89,10 +93,6 @@ void Robot::TeleopInit() {
 void Robot::TeleopPeriodic() { frc::Scheduler::GetInstance()->Run(); }
 
 void Robot::TestPeriodic() {}
-
-void Robot::VisionThread(){
-  
-}
 
 #ifndef RUNNING_FRC_TESTS
 int main() { return frc::StartRobot<Robot>(); }
