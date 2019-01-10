@@ -11,7 +11,7 @@
 #include <frc/commands/Command.h>
 #include <frc/smartdashboard/SendableChooser.h>
 #include <memory>
-#include <WPILib.h>
+#include <frc/WPILib.h>
 #include <mutex>
 
 #include "OI.h"

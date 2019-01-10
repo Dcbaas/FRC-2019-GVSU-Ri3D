@@ -8,7 +8,7 @@
 #pragma once
 
 #include <frc/commands/Subsystem.h>
-#include <Solenoid.h> 
+#include <frc/Solenoid.h> 
 namespace Claw
 {
   class ClawSubsystem : public frc::Subsystem{

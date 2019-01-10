@@ -3,7 +3,7 @@
 #include <frc/commands/Subsystem.h>
 #include "cscore.h"
 #include <opencv2/imgproc/imgproc.hpp>
-#include <opencv2/core/core.hpp>\
+#include <opencv2/core/core.hpp>
 #include <mutex>
 
 #include "libraries/GroundTapePipline.h"
