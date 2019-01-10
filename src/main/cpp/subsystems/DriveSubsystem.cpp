@@ -11,7 +11,7 @@ void DriveSubsystem::InitDefaultCommand() {
 }
 
 void DriveSubsystem::TankDrive(double left, double right) {
-    this->robotDrive.TankDrive(left, right);
+    this->robotDrive.TankDrive(left * LIMITER, right * LIMITER);
 }
 
 void DriveSubsystem::Stop() {
