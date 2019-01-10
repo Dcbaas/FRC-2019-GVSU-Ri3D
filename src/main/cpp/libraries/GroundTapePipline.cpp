@@ -1,4 +1,4 @@
-#include "GroundTapePipline.h"
+#include "libraries/GroundTapePipline.h"
 
 namespace grip {
 
@@ -35,6 +35,7 @@ void GroundTapePipline::Process(cv::Mat& source0){
 	double filterContoursMinRatio = 0;  // default Double
 	double filterContoursMaxRatio = 1000;  // default Double
 	filterContours(filterContoursContours, filterContoursMinArea, filterContoursMinPerimeter, filterContoursMinWidth, filterContoursMaxWidth, filterContoursMinHeight, filterContoursMaxHeight, filterContoursSolidity, filterContoursMaxVertices, filterContoursMinVertices, filterContoursMinRatio, filterContoursMaxRatio, this->filterContoursOutput);
+	getRectangle();
 }
 
 /**
@@ -158,6 +159,9 @@ std::vector<std::vector<cv::Point> >* GroundTapePipline::GetFilterContoursOutput
 		return cv::sqrt(diff.x*diff.x + diff.y*diff.y);
 	}
 
+	int GroundTapePipline::getDistance()const {
+		return offset;
+	}
 
 
 } // end grip namespace

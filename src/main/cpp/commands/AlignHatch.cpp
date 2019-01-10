@@ -13,9 +13,9 @@
 AlignHatch::AlignHatch() {
   // Use Requires() here to declare subsystem dependencies
   m_drive = Robot::driveSubsystem;
-  m_camera = Robot::m_cameraSubsystem;
+  m_vision = Robot::m_visionSubsystem;
   Requires(m_drive.get());
-  Requires(m_camera.get());
+  Requires(m_vision.get());
 }
 
 // Called just before this Command runs the first time
@@ -25,7 +25,7 @@ void AlignHatch::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void AlignHatch::Execute() {
-  double pv = -1;
+  double pv = m_vision->getDistance();
   double output = m_pid.Process(0.0, pv);
 
   if (abs(pv) < 2) 
@@ -38,6 +38,7 @@ void AlignHatch::Execute() {
     m_tolerable = false;
   }
 
+  // Needs to match PID direction
   m_drive->TankDrive(output / 2.0, -output / 2.0);
 }
 
