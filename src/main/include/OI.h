@@ -7,8 +7,8 @@
 
 #pragma once
 
-#include <Joystick.h>     //Driving w/ Joystick
-#include <buttons/JoystickButton.h>
+#include <frc/Joystick.h>     //Driving w/ Joystick
+#include <frc/buttons/JoystickButton.h>
 
 class OI {
  public:
