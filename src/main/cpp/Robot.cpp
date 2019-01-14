@@ -20,6 +20,8 @@ std::shared_ptr<Camera::CameraSubsystem> Robot::m_cameraSubsystem =
   std::make_shared<Camera::CameraSubsystem>();
 std::shared_ptr<Camera::AligmentCamera> Robot::m_visionSubsystem = 
   std::make_shared<Camera::AligmentCamera>();
+std::shared_ptr<HopScotchSubsystem> Robot::m_hopscotchSubsystem =
+  std::make_shared<HopScotchSubsystem>();
 
 OI Robot::m_oi;
 

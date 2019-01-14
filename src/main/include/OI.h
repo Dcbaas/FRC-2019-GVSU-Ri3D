@@ -17,8 +17,10 @@ class OI {
 
   private:
   // see "Running commands on Joystick input" on WPIlib
-	frc::JoystickButton* ClawOpen;
-	frc::JoystickButton* ClawClose;
+	frc::JoystickButton* ClawOpen = new frc::JoystickButton(&this->driveStick, 1);
+	frc::JoystickButton* ClawClose = new frc::JoystickButton(&this->driveStick, 2);
+  frc::JoystickButton* goUp = new frc::JoystickButton(&this->driveStick, 3);
+	frc::JoystickButton* goDown = new frc::JoystickButton(&this->driveStick, 4);
 
   //  Button functions for controller
   frc::JoystickButton* HatchOpen;   //Set Claw position to prepare to pick up Hatch

@@ -22,6 +22,7 @@
 #include "subsystems/CameraSubsystem.h"
 #include "subsystems/ClawSubsystem.h"
 #include "subsystems/VisionSystem.h"
+#include "subsystems/HopScotchSubssytem.h"
 
 class Robot : public frc::TimedRobot {
  public:
@@ -30,6 +31,7 @@ class Robot : public frc::TimedRobot {
   static std::shared_ptr<Camera::CameraSubsystem> m_cameraSubsystem;
   static std::shared_ptr<Claw::ClawSubsystem> m_clawSubsystem;
   static std::shared_ptr<Camera::AligmentCamera> m_visionSubsystem;
+  static std::shared_ptr<HopScotchSubsystem> m_hopscotchSubsystem;
   static OI m_oi;
 
   void RobotInit() override;

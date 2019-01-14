@@ -9,9 +9,17 @@
 #include <frc/livewindow/LiveWindow.h> 
 #include <frc/Joystick.h> 
 
+#include "commands/Clamp.h"
+#include "commands/UnClamp.h"
+#include "commands/Ascend.h"
+#include "commands/Descend.h"
+
 OI::OI() {
   // Eventually, buttons will go here.
-  
+  this->ClawClose->WhenPressed(new Clamp());
+  this->ClawOpen->WhenPressed(new UnClamp());
+  this->goUp->WhenPressed(new Ascend());
+  this->goDown->WhenPressed(new Descend());
 }
 
 

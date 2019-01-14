@@ -7,20 +7,14 @@
 
 #pragma once
 
-#include <frc/commands/Subsystem.h>
-#include <frc/Solenoid.h> 
-namespace Claw
-{
-  class ClawSubsystem : public frc::Subsystem{
-    public:
-      ClawSubsystem();
-      void InitDefaultCommand() override;
-      
-      void SetOpen();
-      void SetClose();
+#include <frc/commands/Command.h>
 
-    private:
-      frc::Solenoid leftSolenoid{0,0};
-      frc::Solenoid rightSolenoid{0,1};
-  };
-}
+class Ascend : public frc::Command {
+ public:
+  Ascend();
+  void Initialize() override;
+  void Execute() override;
+  bool IsFinished() override;
+  void End() override;
+  void Interrupted() override;
+};
