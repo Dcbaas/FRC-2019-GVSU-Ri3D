@@ -17,16 +17,14 @@ void ClawSubsystem::InitDefaultCommand()
     // SetDefaultCommand(new MySpecialCommand());
 }
 
-void ClawSubsystem::setClose(){
-    closed = true;
-    leftSolenoid.Set(closed);
-    rightSolenoid.Set(closed);
+void ClawSubsystem::SetClose(){
+    leftSolenoid.Set(true);
+    rightSolenoid.Set(true);
 }
 
-void ClawSubsystem::setOpen(){
-    closed = false;
-    leftSolenoid.Set(closed);
-    rightSolenoid.Set(closed);
+void ClawSubsystem::SetOpen(){
+    leftSolenoid.Set(false);
+    rightSolenoid.Set(false);
 }
 
 // Put methods for controlling this subsystem

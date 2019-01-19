@@ -21,4 +21,4 @@ class CameraSubsystem : public frc::Subsystem
         cs::UsbCamera mCamera;
         cs::VideoSink mCameraServer;
     };
-}; // namespace CameraSubsystem
+} // namespace CameraSubsystem

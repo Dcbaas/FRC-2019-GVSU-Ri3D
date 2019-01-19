@@ -43,3 +43,8 @@ constexpr int kBottomLeftMotor = 3;
 constexpr int kBottomRightMotor = 4;
 constexpr int kElevMotor1 = 5;
 constexpr int kElevMotor2 = 6;
+
+// PID Constants
+constexpr double kP = 1.0;
+constexpr double kI = 0.0;
+constexpr double kD = 0.0;
