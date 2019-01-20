@@ -19,12 +19,14 @@ void ClawSubsystem::InitDefaultCommand()
 
 void ClawSubsystem::SetClose(){
     clawSolenoid.Set(true);
-    pushSolenoid.Set(true);
 }
 
 void ClawSubsystem::SetOpen(){
     clawSolenoid.Set(false);
-    pushSolenoid.Set(false);
+}
+
+void ClawSubsystem::Push(bool open) {
+    pushSolenoid.Set(open);
 }
 
 // Put methods for controlling this subsystem
