@@ -21,6 +21,7 @@ class OI {
 	frc::JoystickButton* ClawClose = new frc::JoystickButton(&this->driveStick, 2);
   frc::JoystickButton* goUp = new frc::JoystickButton(&this->driveStick, 3);
 	frc::JoystickButton* goDown = new frc::JoystickButton(&this->driveStick, 4);
+  frc::JoystickButton* pusher = new frc::JoystickButton(&this->driveStick, 6);
 
   //  Button functions for controller
   frc::JoystickButton* HatchOpen;   //Set Claw position to prepare to pick up Hatch
