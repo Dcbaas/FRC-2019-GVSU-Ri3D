@@ -13,6 +13,7 @@
 #include "commands/UnClamp.h"
 #include "commands/Ascend.h"
 #include "commands/Descend.h"
+#include "commands/Push.h"
 
 OI::OI() {
   // Eventually, buttons will go here.
@@ -20,7 +21,7 @@ OI::OI() {
   this->ClawOpen->WhenPressed(new UnClamp());
   this->goUp->WhenPressed(new Ascend());
   this->goDown->WhenPressed(new Descend());
-  this->pusher->WhileHeld(new )
+  this->pusher->WhileHeld(new Push());
 }
 
 

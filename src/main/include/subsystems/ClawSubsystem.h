@@ -18,6 +18,7 @@ namespace Claw
       
       void SetOpen();
       void SetClose();
+      void Push
 
     private:
       frc::Solenoid clawSolenoid{0,0};
