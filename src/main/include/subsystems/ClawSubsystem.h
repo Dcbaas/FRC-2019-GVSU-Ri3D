@@ -9,6 +9,8 @@
 
 #include <frc/commands/Subsystem.h>
 #include <frc/Solenoid.h> 
+#include <rev/CANSparkMax.h>
+
 namespace Claw
 {
   class ClawSubsystem : public frc::Subsystem{
@@ -18,10 +20,14 @@ namespace Claw
       
       void SetOpen();
       void SetClose();
+      void SetHeight(int height);
       void Push(bool open);
 
     private:
       frc::Solenoid clawSolenoid{0,0};
       frc::Solenoid pushSolenoid{0,1};
+
+      rev::CANSparkMax m_leftElevator{2, rev::CANSparkMax::MotorType::kBrushless};
+      rev::CANSparkMax m_rightElevator{1, rev::CANSparkMax::MotorType::kBrushless};
   };
 }

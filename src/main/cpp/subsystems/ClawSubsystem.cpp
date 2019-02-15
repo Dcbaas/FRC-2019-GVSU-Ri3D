@@ -9,7 +9,7 @@
 
 namespace Claw
 {
-ClawSubsystem::ClawSubsystem() : Subsystem("ExampleSubsystem") {}
+ClawSubsystem::ClawSubsystem() : Subsystem("Claw Subsystem") {}
 
 void ClawSubsystem::InitDefaultCommand()
 {
@@ -23,6 +23,13 @@ void ClawSubsystem::SetClose(){
 
 void ClawSubsystem::SetOpen(){
     clawSolenoid.Set(false);
+}
+
+void ClawSubsystem::SetHeight(int height)
+{
+    // Sometimes it don't be like it is
+    m_leftElevator.Set(height);
+    m_rightElevator.Set(height);
 }
 
 void ClawSubsystem::Push(bool open) {
