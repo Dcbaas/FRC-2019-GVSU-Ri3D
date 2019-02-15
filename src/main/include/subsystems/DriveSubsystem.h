@@ -1,7 +1,7 @@
 #pragma once
 
 #include "AHRS.h"
-#include "WPILib.h"
+#include <frc/WPILib.h>
 #include "commands/DriveCommand.h"
 #include <rev/CANSparkMax.h>
 #include <frc/commands/Subsystem.h>
@@ -46,7 +46,7 @@ class DriveSubsystem : public frc::Subsystem {
   int lastLeftValue;
   int lastRightValue;
 
-  const double LIMITER = 0.50;
+  const double LIMITER = 0.95;
   const double TICKS_PER_INCH = 23.8;
 
   DriveCommand* driveCommand;

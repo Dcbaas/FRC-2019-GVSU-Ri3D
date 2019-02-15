@@ -4,13 +4,13 @@
 
 namespace Camera{
     AligmentCamera::AligmentCamera() : frc::Subsystem("AligmentCamera"){
-        camera = frc::CameraServer::GetInstance()->StartAutomaticCapture();
-        camera.SetResolution(640,480);
-        cameraSink = frc::CameraServer::GetInstance()->GetVideo();
+        //camera = frc::CameraServer::GetInstance()->StartAutomaticCapture();
+        //camera.SetResolution(640,480);
+        //cameraSink = frc::CameraServer::GetInstance()->GetVideo();
     }
     
     void AligmentCamera::runThread(){
-        std::thread(&AligmentCamera::findDistance, this);
+        //std::thread(&AligmentCamera::findDistance, this);
     }
 
     void AligmentCamera::findDistance(){

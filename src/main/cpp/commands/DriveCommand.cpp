@@ -11,12 +11,14 @@ DriveCommand::DriveCommand() {
 void DriveCommand::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
-double alpha = 0.4; //0.5 //0.74;
+double alpha = .55; //0.5 //0.74;
 double alpham1 = 1 - alpha;
 
 void DriveCommand::Execute() {
     double leftValue = -1 * Robot::m_oi.driveStick.GetRawAxis(1);
+    leftValue *= leftValue;
     double rightValue = Robot::m_oi.driveStick.GetRawAxis(5);
+    rightValue *= rightValue;
     double leftOutput = (alpha * leftValue) + (alpham1 * this->lastLeftOutput);
     double rightOutput = (alpha * rightValue) + (alpham1 * this->lastRightOutput);
     
@@ -28,7 +30,8 @@ void DriveCommand::Execute() {
         rightOutput = (1 * rightValue);
     }
 
-    Robot::driveSubsystem->TankDrive(.6 * leftOutput, .6 * rightOutput);
+    Robot::driveSubsystem->TankDrive(1 * leftOutput, 1 * rightOutput);
+    std::cout << leftOutput << " " << rightOutput << std::endl;
 
     this->lastLeftOutput = leftOutput;
     this->lastRightOutput = rightOutput;
